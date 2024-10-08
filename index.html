@@ -47,13 +47,23 @@
         const websiteFrame = document.getElementById('websiteFrame');
 
         // Function to update iframe source
-        submitBtn.addEventListener('click', () => {
+        function loadWebsite() {
             const url = websiteInput.value;
             // Make sure to add http:// or https:// if the user hasn't entered it
             if (!url.startsWith('http://') && !url.startsWith('https://')) {
                 websiteFrame.src = 'https://whole-website-iframe.arashnm80.workers.dev?url=https://' + url;
             } else {
                 websiteFrame.src = 'https://whole-website-iframe.arashnm80.workers.dev?url=' + url;
+            }
+        }
+
+        // Add click event listener for the button
+        submitBtn.addEventListener('click', loadWebsite);
+    
+        // Add keypress event listener for the input field
+        websiteInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                loadWebsite();  // Call the same function as the button click
             }
         });
     </script>
