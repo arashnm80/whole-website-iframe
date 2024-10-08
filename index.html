@@ -38,7 +38,7 @@
     <button id="submitBtn">Load Website</button>
 
     <!-- iFrame to display the website -->
-    <iframe id="websiteFrame" src="https://first-website.com"></iframe>
+    <iframe id="websiteFrame"></iframe>
 
     <script>
         // Get references to the input field, button, and iframe
@@ -51,9 +51,9 @@
             const url = websiteInput.value;
             // Make sure to add http:// or https:// if the user hasn't entered it
             if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                websiteFrame.src = 'https://' + url;
+                websiteFrame.src = 'https://whole-website-iframe.arashnm80.workers.dev?url=https://' + url;
             } else {
-                websiteFrame.src = url;
+                websiteFrame.src = 'https://whole-website-iframe.arashnm80.workers.dev?url=' + url;
             }
         });
     </script>
